@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
     string command;
-    stack<int> not_my_stack;
+    queue<int> not_my_queue;
     while (true)
     {
         std::cin>>command;
@@ -12,36 +12,36 @@ int main()
         if (command=="push") {
             int n;
             std::cin>>n;
-            not_my_stack.push(n);
+            not_my_queue.push(n);
             std::cout<<"ok\n";
         }
 
         if (command=="pop") {
-            if (not_my_stack.empty()) {
+            if (not_my_queue.empty()) {
                 std::cout<<"error\n";
             }
             else {
-                std::cout<<not_my_stack.top()<<"\n";
-                not_my_stack.pop();
+                std::cout<<not_my_queue.front()<<"\n";
+                not_my_queue.pop();
             }
         }
 
-        if (command=="back") {
-            if (not_my_stack.empty()) {
+        if (command=="front") {
+            if (not_my_queue.empty()) {
                 std::cout<<"error\n";
             }
             else {
-                std::cout<<not_my_stack.top()<<"\n";
+                std::cout<<not_my_queue.front()<<"\n";
             }
         }
 
         if (command=="size") {
-            std::cout<<not_my_stack.size()<<std::endl;
+            std::cout<<not_my_queue.size()<<std::endl;
         }
 
         if (command=="clear") {
-            while (!not_my_stack.empty()) {
-                not_my_stack.pop();
+            while (!not_my_queue.empty()) {
+                not_my_queue.pop();
             }
             std::cout<<"ok\n";
         }
